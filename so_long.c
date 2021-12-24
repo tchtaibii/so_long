@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 14:03:29 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/12/24 14:49:54 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,22 +103,25 @@ int main(int ac, char **av)
             i++;
         }
         int j = i;
+        int k = i + 1;
         i *= 2;
         while (map[j])
         {
+            j++;
             if (map[j] == '\n')
             {
-                if (i != j)
-                {
-                    write(1, "fix ur map", 10);
-                    return 0;
-                }
-                else
-                    i *= 2;
+            if ((i + 1) != j)
+            {
+                write(1, "fix ur map", 10);
+                return 0;
+            }
+            else
+                i += k;
             }
         }
+        j = 0;
         i = ft_strlen1(map) - 1;
-        while (map[i] != '\n' && map[i])
+        while (map[i] != '\n')
         {
             if(map[i] != '1')
             {
@@ -126,6 +129,12 @@ int main(int ac, char **av)
                 return 0;
             }
             i--;
+            j++;
+        }
+        if (j + 1 != k)
+        {
+            write(1, "fix ur map", 10);
+            return 0;
         }
         write(1, "ur map is great", 15);
         return 0;
