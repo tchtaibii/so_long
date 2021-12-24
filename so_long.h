@@ -10,7 +10,7 @@
 
 
 char *get_next_line(int fd);
-int ft_wall(int fd);
+char *get_map(int fd);
 
 
 #endif

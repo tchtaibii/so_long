@@ -1,7 +1,8 @@
 #include "so_long.h"
-int ft_checkE(char *line)
+/*int ft_checkmap(char *line)
 {
 	int c = 0;
+	int j = 0;
 	while (line[j])
 	{
 		if(line[j] == 'E')
@@ -10,12 +11,16 @@ int ft_checkE(char *line)
 	}
 	return c;
 }
-int ft_wall(int fd)
+
+char *ft_wall()
 {
 	char	*line;
-	int i = 0;
-	int j = 1;
-	line = get_next_line(fd);
+	//int i = 0;
+	//int j = 1;
+	line = get_map();
+	return line;
+}*/
+	/*line = get_next_line(fd);
 	while (line[i] != '\n')
 	{
 		if (line[i] != '1')
@@ -32,18 +37,17 @@ int ft_wall(int fd)
 		write(1, "fix ur wall", 11);
 		return (0);
 	}
-	int e = ft_checkE(line);
-	if (e > 1 || e == 0 )
+	int map = ft_checkmap(line);
+	if (map > 1 || map == 0 )
 	{
 		write(1, "fix ur exit", 11);
 		return 0;
 	}
-	while (line[j] != '\n')
+	map = ft_checkmap(line);
+	if (map > 1 || map == 0 )
 	{
-		
-		if (line[j] != '0' || line[j] != '')
-		i++;
+		write(1, "fix ur player", 11);
+		return 0;
 	}
-	
 	return i;	
-}
+}*/

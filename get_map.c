@@ -137,3 +137,49 @@ char *get_next_line(int fd)
     sta = ft_a(sta);
     return l;
 }
+
+char *ft_strjoin1(char *s1, char *s2)
+{
+    int i = 0;
+    int j = 0;
+    char *new;
+
+    if(!s1 && !s2)
+        return 0;
+    if (!s1)
+    {
+        s1 = malloc(1);
+        s1[0] = 0;
+    }
+    new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+    if (!new)
+        return 0;
+    while (s1[i])
+        new[j++] = s1[i++];
+    i = 0;
+    while (s2[i])
+        new[j++] = s2[i++];
+    new[j] = '\0';
+    //free(s1);
+    return new;
+}
+
+char *get_map(int fd)
+{
+    char *tmp;
+    char *map;
+    
+    map = 0;
+    while (1)
+    {
+        tmp = get_next_line(fd);
+        if (tmp == NULL)
+        {
+            free(tmp);
+            break;
+        }
+        map = ft_strjoin1(map, tmp);
+        free(tmp);
+    }
+    return (map);
+}
