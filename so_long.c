@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 01:50:25 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/12/24 02:10:34 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,17 @@ int main(int ac, char **av)
             p++;
         if(map[i] == 'C')
             c++;
-        if((map[i] == '\n' && map[i - 1] != '1') || (map[i] == '\0' && map[i - 1] != '1'))
+        if((map[i] == '\n' && map[i - 1] != '1') || (map[i] == '\n' && map[i + 1] != '1'))
         {
             write(1, "FIX UR EDGES", 12);
             return 0;
         }
         i++;
-    
     }
     i = 0;
-    if (c <= 0)
+    if (c < 1 || e != 1 || p != 1)
     {
-        write(1, "ERROR C", 7);
-        return 0;
-    }
-    if (e != 1)
-    {
-        write(1, "ERROR E", 7);
-        return 0;
-    }
-    if (p != 1)
-    {
-        write(1, "ERROR p", 7);
+        write(1, "ERROR", 5);
         return 0;
     }
     while (map[i] != '\n')
