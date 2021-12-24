@@ -1,6 +1,6 @@
-#include "so_long.h"
+#include "functions.h"
 
-int map_rect(char *map, int j ,int i, int k)
+int map_rect(char *map, int j, int i, int k)
 {
     k = i + 1;
     i *= 2;
@@ -20,6 +20,7 @@ int map_rect(char *map, int j ,int i, int k)
     }
     return k;
 }
+
 int map_rect2(char *map, int j, int k)
 {
     if (j + 1 != k)

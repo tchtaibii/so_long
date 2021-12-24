@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 15:36:12 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:47:10 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,11 @@ int main(int ac, char **av)
 {
     int fd = open(av[1], O_RDONLY);
     char *map = get_map(fd);
-    int i;
-    int j;
-    int k;
     
     if (ac == 2)
     {
-        if (!char_check(map, 0, 0, 0))
+        if(!ft_checkmap(map))
             return 0;
-        if (!up_wall(map, 0))
-            return 0;
-        i = up_wall(map, 0);
-        if (!map_rect(map, i, i, 0))
-            return 0;
-        k = map_rect(map, i, i, 0);
-        i = ft_strlen1(map) - 1;
-        if(!low_wall(map, i, 0))
-            return 0;
-        j = low_wall(map, i, 0);
-        
-        if (!map_rect2(map, j, k))
-            return 0;
-        write(1, "ur map is great", 15);
-        return 0;
     }
     else
         write(1, "argument less", 13);

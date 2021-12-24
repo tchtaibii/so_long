@@ -6,11 +6,11 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:10 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 15:30:46 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:49:02 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int char_check(char *map ,int e, int o, int p)
 {

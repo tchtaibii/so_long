@@ -1,7 +1,5 @@
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "so_long.h"
+#include "../so_long.h"
 
 int ft_strlen(char *str)
 {

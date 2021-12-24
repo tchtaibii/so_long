@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "../so_long.h"
 
 int up_wall(char *map, int i)
 {
