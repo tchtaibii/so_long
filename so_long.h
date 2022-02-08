@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 16:54:27 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:09:25 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 #include <stdlib.h>
 #include <mlx.h>
 #include <stdio.h>
-#include "functions_map_checker/functions.h"
+#include "functions/functions.h"
 #define  BUFFER_SIZE 1
-
-
 
 #endif

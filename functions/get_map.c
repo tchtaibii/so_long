@@ -1,5 +1,4 @@
-
-#include "../so_long.h"
+#include "functions.h"
 
 int ft_strlen(char *str)
 {

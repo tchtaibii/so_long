@@ -1,4 +1,5 @@
-#include "../so_long.h"
+#include "functions.h"
+
 int ft_checkmap(char *map)
 {
 	int i;

@@ -6,11 +6,11 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:10 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/12/24 16:49:02 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:24:03 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "functions.h"
 
 int char_check(char *map ,int e, int o, int p)
 {
@@ -28,8 +28,8 @@ int char_check(char *map ,int e, int o, int p)
             }
             if(map[i] == 'E')
                 e++;
-            if(map[i] == '0')
-                o++;
+            /*if(map[i] == '0')
+                o++;*/
             if(map[i] == 'P')
                 p++;
             if(map[i] == 'C')
@@ -41,7 +41,7 @@ int char_check(char *map ,int e, int o, int p)
             }
             i++;
         }
-    if (c < 1 || e != 1 || p != 1 || o <= 0)
+    if (c < 1 || e < 1 || p != 1)
     {
         write(1, "more or less than objects", 25);
         return 0;
