@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/08 12:08:41 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:43:51 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include "../so_long.h"
 
 #define  BUFFER_SIZE 1
+
+int map_height;
+int map_weight;
+
 
 
 char    *get_map(int fd);
@@ -27,7 +31,7 @@ int     low_wall(char *map, int i, int j);
 int     map_rect(char *map, int j ,int i, int k);
 int     map_rect2(char *map, int j, int k);
 char    **ft_split(char const *s, char c);
-int     ft_size(char *str);
-
+char    **ft_size(char *str);
+void    ft_screen(char **str);
 
 #endif

@@ -11,8 +11,6 @@
     void *ptr_mlx;
     void *window_mlx;
     void *image;
-    int w=1242;
-    int h=1728;
 
     ptr_mlx = mlx_init();
     window_mlx = mlx_new_window (ptr_mlx, 1242, 1728, "SO LONG" );

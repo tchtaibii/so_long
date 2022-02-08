@@ -20,7 +20,6 @@ int ft_checkmap(char *map)
     j = low_wall(map, i, 0);
     if (!map_rect2(map, j, k))
         return 0;
-    write(1, "ur map is great", 15);
+    write(1, "ur map is great\n", 16);
     return 1;
 }
-
