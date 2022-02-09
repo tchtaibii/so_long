@@ -6,11 +6,12 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/09 16:47:54 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 00:20:28 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "functions/functions.h"
 
 void ft_screen(char **str)
 {
@@ -20,6 +21,8 @@ void ft_screen(char **str)
 	int x;
 	int y = 0;
 	t_img img;
+	img.a = 0;
+	img.b = 0;
 	img.ptr_mlx = mlx_init();
 	printf("1\n");
     img.window_mlx = mlx_new_window (img.ptr_mlx, map_height, map_weight, "SO LONG" );
@@ -38,22 +41,35 @@ void ft_screen(char **str)
 		while(str[i][j])
 		{
 			mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.empty, x , y);
+			if(str[i][j] == '0')
+			{
+				img.emptyx = x;
+				img.emptyy = y;
+			}
 			if(str[i][j] == '1')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.wall, x , y);
-			if(str[i][j] == 'E')
+			else if(str[i][j] == 'E')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_c, x , y);
-			if(str[i][j] == 'C')
+			else if(str[i][j] == 'C')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.coin, x , y);
-			if(str[i][j] == 'P')
+			else if(str[i][j] == 'P')
+			{
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.player, x , y);
+				img.playerx = x;
+				img.playery = y;
+				img.b = i;
+				img.a = j;
+				printf("a = %d\n", img.a);
+				printf("b = %d\n", img.b);
+			}
 			j++;
 			x += 68;
 		}
 		y += 68;
 		i++;
 	}
-	mlx_hook(img.window_mlx, 2, 1L<<0, ft_move_player, &p);
-    mlx_loop (img.ptr_mlx); 
+	mlx_hook(img.window_mlx, 2, 1L<<0, ft_move_player, &img);
+    mlx_loop (img.ptr_mlx);
 }
 int main(int ac, char **av)
 {
