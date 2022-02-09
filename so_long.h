@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/08 17:49:42 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:39:06 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 #include "functions/functions.h"
 #define  BUFFER_SIZE 1
 
-#define i_empty "/Users/tchtaibi/Desktop/so_long/imgs/xpm/0.xpm"
-#define i_player "/Users/tchtaibi/Desktop/so_long/imgs/xpm/p.xpm"
-#define i_wall "/Users/tchtaibi/Desktop/so_long/imgs/xpm/1.xpm"
-#define i_exit_o "/Users/tchtaibi/Desktop/so_long/imgs/xpm/eo.xpm"
-#define i_exit_c "/Users/tchtaibi/Desktop/so_long/imgs/xpm/ec.xpm"
-#define i_coin "/Users/tchtaibi/Desktop/so_long/imgs/xpm/c.xpm"
+#define i_empty "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
+#define i_player "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/p.xpm"
+#define i_wall "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
+#define i_exit_o "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
+#define i_exit_c "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
+#define i_coin "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/c.xpm"
+
+char **global_map;
 
 typedef struct s_img
 {
@@ -43,6 +45,11 @@ typedef struct s_img
     int wei;
     
 }   t_img;
+typedef struct s_player
+{
+    int x;
+    int y;
+} t_player;
 
 
 

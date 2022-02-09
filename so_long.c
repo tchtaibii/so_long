@@ -6,17 +6,19 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/08 17:59:37 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:47:54 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void ft_screen(char **str)
 {
+	t_player p;
 	int i = 0;
-	int x = 0;
+	int j;
+	int x;
 	int y = 0;
-	int j = 0;
 	t_img img;
 	img.ptr_mlx = mlx_init();
 	printf("1\n");
@@ -45,25 +47,25 @@ void ft_screen(char **str)
 			if(str[i][j] == 'P')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.player, x , y);
 			j++;
-			x += 90;
+			x += 68;
 		}
-		y += 90;
+		y += 68;
 		i++;
 	}
+	mlx_hook(img.window_mlx, 2, 1L<<0, ft_move_player, &p);
     mlx_loop (img.ptr_mlx); 
 }
 int main(int ac, char **av)
 {
+	
     int fd = open(av[1], O_RDONLY);
     char *map = get_map(fd);
-    char **scr;
     if (ac == 2)
     {
         if(!ft_checkmap(map))
             return 0;
-        scr = ft_size(map);
-		ft_screen(scr);
-        
+        global_map = ft_size(map);
+		ft_screen(global_map);
     }
     else
         write(1, "argument less", 13);

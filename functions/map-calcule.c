@@ -12,11 +12,7 @@ char	**ft_size(char *str)
 			h++;
 		w++;
 	}
-	map_height = h * 90;
-	map_weight = w * 90;
+	map_height = h * 68;
+	map_weight = w * 68;
 	return (spt);
 }
-// int main()
-// {
-// 	ft_size("1111111111111\n10010000000C1\n100001C111001\n1P0011E000001\n1111111111111");
-// }
