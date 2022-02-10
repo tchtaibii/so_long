@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 14:19:58 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:18:43 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_player
 int ft_move_player(int key, t_img *img);
 void ft_move_down(int key, t_img *img);
 void ft_move_up(int key, t_img *img);
+void ft_move_right(int key, t_img *img);
+void ft_move_left(int key, t_img *img);
 #endif
 
 // down -> 125 1
