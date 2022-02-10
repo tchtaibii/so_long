@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 20:12:02 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 21:19:43 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void ft_screen(char **str)
 	img.ptr_mlx = mlx_init();
     img.window_mlx = mlx_new_window (img.ptr_mlx, map_height, map_weight, "SO LONG" );
 	img.player = mlx_xpm_file_to_image(img.ptr_mlx, i_player, &img.hei, &img.wei);
+	img.playerR = mlx_xpm_file_to_image(img.ptr_mlx, i_playerL, &img.hei, &img.wei);
+	img.playerL = mlx_xpm_file_to_image(img.ptr_mlx, i_playerR, &img.hei, &img.wei);
 	img.wall = mlx_xpm_file_to_image(img.ptr_mlx, i_wall, &img.hei, &img.wei);
 	img.coin = mlx_xpm_file_to_image(img.ptr_mlx, i_coin, &img.hei, &img.wei);
 	img.empty = mlx_xpm_file_to_image(img.ptr_mlx, i_empty, &img.hei, &img.wei);

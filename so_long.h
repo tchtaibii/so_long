@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 19:04:05 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 21:14:32 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 #define  BUFFER_SIZE 1
 
 #define i_empty "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
-#define i_player "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/p.xpm"
+#define i_player "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerUD.xpm"
+#define i_playerL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerL.xpm"
+#define i_playerR "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerR.xpm"
 #define i_wall "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
 #define i_exit_o "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
 #define i_exit_c "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
@@ -37,6 +39,8 @@ typedef struct s_img
     void *window_mlx;
     void *image;
     void *player;
+    void *playerR;
+    void *playerL;
     void *wall;
     void *empty;
     void *exit_c;

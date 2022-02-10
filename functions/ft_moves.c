@@ -12,14 +12,14 @@ void ft_move_left(int key, t_img *img)
 					coin_num++;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 				img->a--;
-				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->playerL, img->a * 68, img->b * 68);
 			}
 		}
 		else if (global_map[img->b][img->a - 1] == 'E' && coin_num == coin_fnum)
 		{
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 			img->a--;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->playerL, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->ptr_mlx, img->window_mlx);
 			write(1, "YOU WIN", 7);
 			exit(1);
@@ -38,18 +38,17 @@ void ft_move_right(int key, t_img *img)
 				{
 				if (coin_num < coin_fnum)
 					coin_num++;
-					printf("%d\n",coin_num);
 				}
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 				img->a++;
-				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->playerR, img->a * 68, img->b * 68);
 			}
 		}
 		else if (global_map[img->b][img->a + 1] == 'E' && coin_num == coin_fnum)
 		{
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 			img->a++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->playerR, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->ptr_mlx, img->window_mlx);
 			write(1, "YOU WIN", 7);
 			exit(1);
