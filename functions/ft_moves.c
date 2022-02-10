@@ -5,16 +5,19 @@ void ft_move_left(int key, t_img *img)
 	{
 		if(global_map[img->b][img->a - 1] != '1' && global_map[img->b][img->a - 1] != 'E')
 		{
-			if(global_map[img->b][img->a - 1] == 'C')
-				coin_num++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
-			img->a--;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+			if(global_map[img->b][img->a - 1] == 'C' || global_map[img->b][img->a - 1] == '0')
+			{
+				if(global_map[img->b][img->a - 1] == 'C')
+					coin_num++;
+				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
+				img->b--;
+				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
+			}
 		}
 		else if (global_map[img->b][img->a - 1] == 'E' && coin_num == coin_fnum)
 		{
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
-			img->a--;
+			img->b--;
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->ptr_mlx, img->window_mlx);
 			write(1, "YOU WIN", 7);
