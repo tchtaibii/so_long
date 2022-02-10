@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 19:06:31 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:12:02 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void ft_screen(char **str)
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.wall, x , y);
 			else if(str[i][j] == 'E')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_c, x , y);
-			else if(str[i][j] == 'E' && coin_fnum == coin_num)
-				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_o, x , y);
 			else if(str[i][j] == 'C')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.coin, x , y);
 			else if(str[i][j] == 'P')

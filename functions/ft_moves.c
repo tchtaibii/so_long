@@ -5,19 +5,20 @@ void ft_move_left(int key, t_img *img)
 	{
 		if(global_map[img->b][img->a - 1] != '1' && global_map[img->b][img->a - 1] != 'E')
 		{
-			if(global_map[img->b][img->a - 1] == 'C' || global_map[img->b][img->a - 1] == '0')
+			if(global_map[img->b][img->a - 1] == 'C' || global_map[img->b][img->a - 1] == '0' || global_map[img->b][img->a - 1] == 'P')
 			{
 				if(global_map[img->b][img->a - 1] == 'C')
+				if (coin_num < coin_fnum)
 					coin_num++;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
-				img->b--;
+				img->a--;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
 			}
 		}
 		else if (global_map[img->b][img->a - 1] == 'E' && coin_num == coin_fnum)
 		{
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
-			img->b--;
+			img->a--;
 			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->ptr_mlx, img->window_mlx);
 			write(1, "YOU WIN", 7);
@@ -31,10 +32,14 @@ void ft_move_right(int key, t_img *img)
 	{
 		if(global_map[img->b][img->a + 1] != '1' && global_map[img->b][img->a + 1] != 'E')
 		{
-			if(global_map[img->b][img->a + 1] == 'C' || global_map[img->b][img->a + 1] == '0')
+			if(global_map[img->b][img->a + 1] == 'C' || global_map[img->b][img->a + 1] == '0' || global_map[img->b][img->a + 1] == 'P')
 			{
 				if(global_map[img->b][img->a + 1] == 'C')
+				{
+				if (coin_num < coin_fnum)
 					coin_num++;
+					printf("%d\n",coin_num);
+				}
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 				img->a++;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
@@ -57,9 +62,10 @@ void ft_move_down(int key, t_img *img)
 	{
 		if(global_map[img->b + 1][img->a] != '1' && global_map[img->b + 1][img->a] != 'E')
 		{
-			if(global_map[img->b + 1][img->a] == 'C' || global_map[img->b + 1][img->a] == '0')
+			if(global_map[img->b + 1][img->a] == 'C' || global_map[img->b + 1][img->a] == '0' || global_map[img->b + 1][img->a] == 'P')
 			{
 				if(global_map[img->b + 1][img->a] == 'C')
+				if (coin_num < coin_fnum)
 					coin_num++;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 				img->b++;
@@ -83,10 +89,11 @@ void ft_move_up(int key, t_img *img)
 	{
 		if(global_map[img->b - 1][img->a] != '1' && global_map[img->b - 1][img->a] != 'E')
 		{
-			if(global_map[img->b - 1][img->a] == 'C' || global_map[img->b - 1][img->a] == '0')
+			if(global_map[img->b - 1][img->a] == 'C' || global_map[img->b - 1][img->a] == '0' || global_map[img->b - 1][img->a] == 'P')
 			{
 				if(global_map[img->b - 1][img->a] == 'C')
-					coin_num++;
+					if (coin_num < coin_fnum)
+						coin_num++;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->empty, img->a * 68, img->b * 68);
 				img->b--;
 				mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, img->player, img->a * 68, img->b * 68);
@@ -114,6 +121,5 @@ int	ft_move_player(int key, t_img *img)
 		mlx_destroy_window(img->ptr_mlx, img->window_mlx);
 		exit(1);
 	}
-
 	return 0;
 }
