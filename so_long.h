@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 00:18:19 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:19:58 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct s_img
     int emptyy;
     int a;
     int b;
+    int cn;
+    int cnf;
     
 }   t_img;
 typedef struct s_player
@@ -57,7 +59,14 @@ typedef struct s_player
     int y;
 } t_player;
 
-char **ft_move_down(char **map, t_img *img);
+//char **ft_move_down(char **map, t_img *img);
 int ft_move_player(int key, t_img *img);
-
+void ft_move_down(int key, t_img *img);
+void ft_move_up(int key, t_img *img);
 #endif
+
+// down -> 125 1
+// up ->  126 13
+// right-> 123 0
+// left -> 124  2
+// exit -> 53
