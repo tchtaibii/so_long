@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 21:14:32 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 22:36:10 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <mlx.h>
 #include <stdio.h>
 #include "functions/functions.h"
+#include "printf/ft_printf.h"
 #define  BUFFER_SIZE 1
 
 #define i_empty "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
@@ -33,6 +34,7 @@
 char **global_map;
 int coin_fnum;
 int coin_num;
+int moves;
 typedef struct s_img
 {
     void *ptr_mlx;
@@ -48,10 +50,6 @@ typedef struct s_img
     void *coin;
     int hei;
     int wei;
-    int playery;
-    int playerx;
-    int emptyx;
-    int emptyy;
     int a;
     int b;
     

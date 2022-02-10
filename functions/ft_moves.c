@@ -115,9 +115,11 @@ int	ft_move_player(int key, t_img *img)
 	ft_move_up(key, img);
 	ft_move_right(key, img);
 	ft_move_left(key, img);
+	ft_printf("moves = %d\n", ++moves);
 	if (key == 53)
 	{
 		mlx_destroy_window(img->ptr_mlx, img->window_mlx);
+		ft_printf("EXIT\n");
 		exit(1);
 	}
 	return 0;

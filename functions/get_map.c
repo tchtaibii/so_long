@@ -1,6 +1,6 @@
 #include "functions.h"
 
-int ft_strlen(char *str)
+int ft_strlenn(char *str)
 {
     int i = 0;
     
@@ -18,7 +18,7 @@ char *ft_substr(char *str, int start, int len)
 
     if (!str)
         return 0;
-    if (start >= ft_strlen(str))
+    if (start >= ft_strlenn(str))
         len = 0;
     while (i < len && str[i])
         i++;
@@ -43,7 +43,7 @@ char *ft_strjoin(char *s1, char *s2)
         s1 = malloc(1);
         s1[0] = 0;
     }
-    new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+    new = malloc(ft_strlenn(s1) + ft_strlenn(s2) + 1);
     if (!new)
         return 0;
     while (s1[i])
@@ -79,7 +79,7 @@ char *ft_a(char *str)
     {
         if(str[i] == '\n')
         {
-            tmp = ft_substr(str, i + 1, ft_strlen(str));
+            tmp = ft_substr(str, i + 1, ft_strlenn(str));
             free(str);
             return tmp;
         }
@@ -148,7 +148,7 @@ char *ft_strjoin1(char *s1, char *s2)
         s1 = malloc(1);
         s1[0] = 0;
     }
-    new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+    new = malloc(ft_strlenn(s1) + ft_strlenn(s2) + 1);
     if (!new)
         return 0;
     while (s1[i])
