@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/09 23:16:59 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 16:33:15 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 int map_height;
 int map_weight;
 
-
-
 char    *get_map(int fd);
 int     ft_checkmap(char *map);
 int     char_check(char *map ,int e, int o, int p);
@@ -33,5 +31,6 @@ int     map_rect2(char *map, int j, int k);
 char    **ft_split(char const *s, char c);
 char    **ft_size(char *str);
 void    ft_screen(char **str);
+int		ft_ber_checker(char *string);
 
 #endif

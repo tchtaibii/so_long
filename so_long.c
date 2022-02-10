@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 00:20:28 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/10 19:06:31 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ void ft_screen(char **str)
 	int x;
 	int y = 0;
 	t_img img;
+	
 	img.a = 0;
 	img.b = 0;
 	img.ptr_mlx = mlx_init();
-	printf("1\n");
     img.window_mlx = mlx_new_window (img.ptr_mlx, map_height, map_weight, "SO LONG" );
-	printf("2\n");
 	img.player = mlx_xpm_file_to_image(img.ptr_mlx, i_player, &img.hei, &img.wei);
-	printf("3\n");
 	img.wall = mlx_xpm_file_to_image(img.ptr_mlx, i_wall, &img.hei, &img.wei);
 	img.coin = mlx_xpm_file_to_image(img.ptr_mlx, i_coin, &img.hei, &img.wei);
 	img.empty = mlx_xpm_file_to_image(img.ptr_mlx, i_empty, &img.hei, &img.wei);
@@ -50,6 +48,8 @@ void ft_screen(char **str)
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.wall, x , y);
 			else if(str[i][j] == 'E')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_c, x , y);
+			else if(str[i][j] == 'E' && coin_fnum == coin_num)
+				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_o, x , y);
 			else if(str[i][j] == 'C')
 				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.coin, x , y);
 			else if(str[i][j] == 'P')
@@ -59,8 +59,6 @@ void ft_screen(char **str)
 				img.playery = y;
 				img.b = i;
 				img.a = j;
-				printf("a = %d\n", img.a);
-				printf("b = %d\n", img.b);
 			}
 			j++;
 			x += 68;
@@ -73,16 +71,21 @@ void ft_screen(char **str)
 }
 int main(int ac, char **av)
 {
-	
-    int fd = open(av[1], O_RDONLY);
-    char *map = get_map(fd);
-    if (ac == 2)
-    {
-        if(!ft_checkmap(map))
-            return 0;
-        global_map = ft_size(map);
+	if(!ft_ber_checker(av[1]))
+	{
+		write(1, "the file is not map\n", 20);
+		return 0;
+	}
+	int fd = open(av[1], O_RDONLY);
+	char *map = get_map(fd);
+	if (ac == 2)
+	{
+		if(!ft_checkmap(map))
+			return 0;
+		global_map = ft_size(map);
+		free(map);
 		ft_screen(global_map);
-    }
-    else
-        write(1, "argument less", 13);
+	}
+	else
+		write(1, "argument less", 13);
 }
