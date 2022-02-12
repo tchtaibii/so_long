@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_spilt.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/11 00:01:29 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/11 21:23:28 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "functions.h"
 
 int	checker_str(char sep, char c)
@@ -7,7 +19,7 @@ int	checker_str(char sep, char c)
 	return (0);
 }
 
-int	ft_word_counter(char const *s, char sep)
+int	ft_word_counter(char *s, char sep)
 {
 	int	i;
 	int	c;
@@ -26,7 +38,7 @@ int	ft_word_counter(char const *s, char sep)
 	return (c);
 }
 
-int	ft_len_counter(char const *s, char sep)
+int	ft_len_counter(char *s, char sep)
 {
 	int	i;
 	int	c;
@@ -43,7 +55,7 @@ int	ft_len_counter(char const *s, char sep)
 	return (c);
 }
 
-char	*ft_put(char const *s, char sep)
+char	*ft_put(char *s, char sep)
 {
 	int		i;
 	int		j;
@@ -64,7 +76,7 @@ char	*ft_put(char const *s, char sep)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int			word;
 	char		**new;
@@ -74,7 +86,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	word = ft_word_counter(s, c);
-	new = malloc(sizeof(char *) * ((word) + 1));
+	new = malloc(sizeof(char *) * (word + 1));
 	if (!new)
 		return (0);
 	i = 0;

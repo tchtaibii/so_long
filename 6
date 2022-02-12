@@ -1,0 +1,25 @@
+while(str[i])
+	{
+		j = 0;
+		x = 0;
+		while(str[i][j])
+		{
+			mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.empty, x , y);
+			if(str[i][j] == '1')
+				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.wall, x , y);
+			else if(str[i][j] == 'E')
+				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.exit_c, x , y);
+			else if(str[i][j] == 'C')
+				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.coin, x , y);
+			else if(str[i][j] == 'P')
+			{
+				mlx_put_image_to_window(img.ptr_mlx, img.window_mlx, img.player, x , y);
+				img.b = i;
+				img.a = j;
+			}
+			j++;
+			x += 68;
+		}
+		y += 68;
+		i++;
+	}

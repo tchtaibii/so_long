@@ -1,182 +1,130 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_map.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/11 00:02:35 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/12 16:13:17 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "functions.h"
 
-int ft_strlenn(char *str)
+char	*ft_before_line(char *s)
 {
-    int i = 0;
-    
-    if(!str)
-        return 0;
-    while (str[i])
-        i++;
-    return i;
-}
-char *ft_substr(char *str, int start, int len)
-{
-    int i = 0;
-    int j = 0;
-    char *new;
+	int	i;
 
-    if (!str)
-        return 0;
-    if (start >= ft_strlenn(str))
-        len = 0;
-    while (i < len && str[i])
-        i++;
-    new = malloc(i + 1);
-    if (!new)
-        return 0;
-    while (j < i)
-        new[j++] = str[start++];
-    new[j] = '\0';
-    return new;
-}
-char *ft_strjoin(char *s1, char *s2)
-{
-    int i = 0;
-    int j = 0;
-    char *new;
-
-    if(!s1 && !s2)
-        return 0;
-    if (!s1)
-    {
-        s1 = malloc(1);
-        s1[0] = 0;
-    }
-    new = malloc(ft_strlenn(s1) + ft_strlenn(s2) + 1);
-    if (!new)
-        return 0;
-    while (s1[i])
-        new[j++] = s1[i++];
-    i = 0;
-    while (s2[i])
-        new[j++] = s2[i++];
-    new[j] = '\0';
-    free(s1);
-    return new;
-}
-int check_new_line(char *str)
-{
-    int i = 0;
-
-    if (!str)
-        return 0;
-    while (str[i])
-    {
-        if(str[i] == '\n')
-            return 1;
-        i++;
-    }
-    return 0;
-}
-char *ft_a(char *str)
-{
-    if (!str)
-        return 0;
-    int i = 0;
-    char *tmp;
-    while (str[i])
-    {
-        if(str[i] == '\n')
-        {
-            tmp = ft_substr(str, i + 1, ft_strlenn(str));
-            free(str);
-            return tmp;
-        }
-        i++;
-    }
-    return 0;
+	if (!s[0])
+		return (NULL);
+	i = 0;
+	while (s[i] && s[i] != '\n')
+		i++;
+	return (ft_substr(s, 0, i + 1));
 }
 
-char *ft_b(char *str)
+char	*ft_after_line(char *s)
 {
-    int i = 0;
+	char	*str;
+	int		i;
 
-    if (!str[0])
-        return 0;
-    while (str[i] && str[i] != '\n')
-        i++;
-    return (ft_substr(str, 0, i +1));
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+	{
+		if (s[i] == '\n')
+		{
+			str = ft_substr(s, i + 1, ft_strlen(s));
+			free (s);
+			return (str);
+		}
+		i++;
+	}
+	free (s);
+	return (NULL);
 }
-char *get_line(int fd, char *str)
-{
-    char *tmp;
-    int t = 1;
 
-    tmp = malloc(BUFFER_SIZE + 1);
-    if (!tmp)
-        return 0;
-    while (t && !check_new_line(str))
-    {
-        t = read(fd, tmp, BUFFER_SIZE);
-        if(t == -1)
-        {
-            free(tmp);
-            return 0;
-        }
-        tmp[t] = '\0';
-        str = ft_strjoin(str, tmp);
-    }
-    free(tmp);
-    return str;
+char	*ft_getline(int fd, char *a)
+{
+	char	*str;
+	int		t;
+
+	str = malloc (2);
+	t = 1;
+	while (!check_line(a) && t)
+	{
+		t = read(fd, str, 1);
+		if (t == -1)
+		{
+			free(str);
+			return (NULL);
+		}
+		str[t] = '\0';
+		a = ft_strjoin(a, str);
+	}
+	free(str);
+	return (a);
 }
-char *get_next_line(int fd)
-{
-    static char *sta;
-    char *l;
 
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return 0;
-    sta = get_line(fd, sta);
-    if(!sta)
-        return 0;
-    l = ft_b(sta);
-    sta = ft_a(sta);
-    return l;
+char	*get_next_line(int fd)
+{
+	static char	*red;
+	char		*l;
+
+	if (fd < 0)
+		return (NULL);
+	red = ft_getline(fd, red);
+	if (!red)
+		return (NULL);
+	l = ft_before_line (red);
+	red = ft_after_line(red);
+	return (l);
 }
 
 char *ft_strjoin1(char *s1, char *s2)
 {
-    int i = 0;
-    int j = 0;
-    char *new;
+	char	*new;
+	int		i;
+	int		j;
+	int		a;
+	int		b;
 
-    if(!s1 && !s2)
-        return 0;
-    if (!s1)
-    {
-        s1 = malloc(1);
-        s1[0] = 0;
-    }
-    new = malloc(ft_strlenn(s1) + ft_strlenn(s2) + 1);
-    if (!new)
-        return 0;
-    while (s1[i])
-        new[j++] = s1[i++];
-    i = 0;
-    while (s2[i])
-        new[j++] = s2[i++];
-    new[j] = '\0';
-    //free(s1);
-    return new;
+	a = ft_strlen(s1);
+	b = ft_strlen(s2);
+	new = malloc ((a + b + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (i < a)
+		new[i++] = s1[j++];
+	j = 0;
+	while (j < b)
+		new[i++] = s2[j++];
+	new[i] = '\0';
+	return (new);
 }
 
-char *get_map(int fd)
+char	*get_map(int fd)
 {
-    char *tmp;
-    char *map;
-    
-    map = 0;
-    while (1)
-    {
-        tmp = get_next_line(fd);
-        if (tmp == NULL)
-        {
-            free(tmp);
-            break;
-        }
-        map = ft_strjoin1(map, tmp);
-        free(tmp);
-    }
-    return (map);
+	char	*line;
+	char	*new;
+	char	*tmp;
+
+	new = ft_strdup("");
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (fd < 0)
+			exit (1);
+		if (!line)
+			break ;
+		tmp = new;
+		new = ft_strjoin1(new, line);
+		free(tmp);
+		free(line);
+	}
+	return(new);
 }

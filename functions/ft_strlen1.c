@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/11 00:02:22 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/11 00:02:24 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "functions.h"
 
-int ft_strlen1(char *str)
+int	ft_strlen(char	*str)
 {
-    int i = 0;
-    
-    if(!str)
-        return 0;
-    while (str[i])
-        i++;
-    return i;
+	int i = 0;
+	
+	if(!str)
+		return 0;
+	while (str[i])
+		i++;
+	return i;
 }

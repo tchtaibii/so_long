@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 14:55:18 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 22:36:10 by tchtaibi         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   so_long.h										  :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tchtaibi <tchtaibi@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/12/24 14:55:18 by tchtaibi		  #+#	#+#			 */
+/*   Updated: 2022/02/10 22:36:10 by tchtaibi		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
@@ -37,27 +37,27 @@ int coin_num;
 int moves;
 typedef struct s_img
 {
-    void *ptr_mlx;
-    void *window_mlx;
-    void *image;
-    void *player;
-    void *playerR;
-    void *playerL;
-    void *wall;
-    void *empty;
-    void *exit_c;
-    void *exit_o;
-    void *coin;
-    int hei;
-    int wei;
-    int a;
-    int b;
-    
+	void *ptr_mlx;
+	void *window_mlx;
+	void *image;
+	void *player;
+	void *playerR;
+	void *playerL;
+	void *wall;
+	void *empty;
+	void *exit_c;
+	void *exit_o;
+	void *coin;
+	int hei;
+	int wei;
+	int a;
+	int b;
+	
 }   t_img;
 typedef struct s_player
 {
-    int x;
-    int y;
+	int x;
+	int y;
 } t_player;
 
 int ft_move_player(int key, t_img *img);
@@ -65,4 +65,5 @@ void ft_move_down(int key, t_img *img);
 void ft_move_up(int key, t_img *img);
 void ft_move_right(int key, t_img *img);
 void ft_move_left(int key, t_img *img);
+
 #endif

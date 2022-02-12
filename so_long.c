@@ -1,31 +1,28 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 15:46:16 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/10 22:00:30 by tchtaibi         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   so_long.c										  :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tchtaibi <tchtaibi@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/12/21 15:46:16 by tchtaibi		  #+#	#+#			 */
+/*   Updated: 2022/02/10 22:45:13 by tchtaibi		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "functions/functions.h"
 
-void ft_screen(char **str)
+void ft_screen(char **str, int i, int y)
 {
 	t_player p;
-	int i = 0;
+	t_img img;
 	int j;
 	int x;
-	int y = 0;
-	t_img img;
 	
 	img.a = 0;
 	img.b = 0;
 	img.ptr_mlx = mlx_init();
-    img.window_mlx = mlx_new_window (img.ptr_mlx, map_height, map_weight, "SO LONG" );
+	img.window_mlx = mlx_new_window (img.ptr_mlx, map_height, map_weight, "SO LONG" );
 	img.player = mlx_xpm_file_to_image(img.ptr_mlx, i_player, &img.hei, &img.wei);
 	img.playerR = mlx_xpm_file_to_image(img.ptr_mlx, i_playerL, &img.hei, &img.wei);
 	img.playerL = mlx_xpm_file_to_image(img.ptr_mlx, i_playerR, &img.hei, &img.wei);
@@ -60,7 +57,8 @@ void ft_screen(char **str)
 		i++;
 	}
 	mlx_hook(img.window_mlx, 2, 1L<<0, ft_move_player, &img);
-    mlx_loop (img.ptr_mlx);
+	mlx_hook(img.window_mlx, 17, 1L<<0, ft_move_player, &img);
+	mlx_loop (img.ptr_mlx);
 }
 int main(int ac, char **av)
 {
@@ -77,8 +75,9 @@ int main(int ac, char **av)
 			return 0;
 		global_map = ft_size(map);
 		free(map);
-		ft_screen(global_map);
+		ft_screen(global_map, 0, 0);
 	}
 	else
-		write(1, "argument less", 13);
+		ft_printf("argument less");
+
 }

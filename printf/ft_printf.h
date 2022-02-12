@@ -1,23 +1,23 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 04:19:07 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/23 09:13:17 by tchtaibi         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_printf.h										:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tchtaibi <tchtaibi@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/11/20 04:19:07 by tchtaibi		  #+#	#+#			 */
+/*   Updated: 2021/11/23 09:13:17 by tchtaibi		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
-#ifndef    FT_PRINTF_H
-# define    FT_PRINTF_H
+#ifndef	FT_PRINTF_H
+# define	FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
 
 int		ft_printf(const char *format, ...);
-int		ft_strlen(char *s);
+int		ft_strlen11(char *s);
 int		ft_putnbr(int n);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
