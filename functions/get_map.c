@@ -6,11 +6,11 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:02:35 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/12 16:13:17 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/12 20:52:50 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "functions.h"
+#include "../so_long.h"
 
 char	*ft_before_line(char *s)
 {
@@ -83,48 +83,22 @@ char	*get_next_line(int fd)
 	return (l);
 }
 
-char *ft_strjoin1(char *s1, char *s2)
-{
-	char	*new;
-	int		i;
-	int		j;
-	int		a;
-	int		b;
-
-	a = ft_strlen(s1);
-	b = ft_strlen(s2);
-	new = malloc ((a + b + 1) * sizeof(char));
-	if (!new)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < a)
-		new[i++] = s1[j++];
-	j = 0;
-	while (j < b)
-		new[i++] = s2[j++];
-	new[i] = '\0';
-	return (new);
-}
-
 char	*get_map(int fd)
 {
-	char	*line;
-	char	*new;
+	char	*nl;
+	char	*map;
 	char	*tmp;
 
-	new = ft_strdup("");
+	map = ft_strdup("");
 	while (1)
 	{
-		line = get_next_line(fd);
-		if (fd < 0)
-			exit (1);
-		if (!line)
+		nl = get_next_line(fd);
+		if (!nl)
 			break ;
-		tmp = new;
-		new = ft_strjoin1(new, line);
+		tmp = map;
+		map = ft_strjoin1(map, nl);
 		free(tmp);
-		free(line);
+		free(nl);
 	}
-	return(new);
+	return (map);
 }

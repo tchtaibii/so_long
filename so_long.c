@@ -12,13 +12,12 @@
 
 #include "so_long.h"
 
-void ft_screen(char **str, int i, int y)
+void	ft_screen(char **str, int i, int y)
 {
-	t_player p;
-	t_img img;
-	int j;
-	int x;
-	
+	t_img	img;
+	int		j;
+	int		x;
+
 	img.a = 0;
 	img.b = 0;
 	img.ptr_mlx = mlx_init();
@@ -60,24 +59,23 @@ void ft_screen(char **str, int i, int y)
 	mlx_hook(img.window_mlx, 17, 1L<<0, ft_move_player, &img);
 	mlx_loop (img.ptr_mlx);
 }
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	if(!ft_ber_checker(av[1]))
-	{
-		write(1, "the file is not map\n", 20);
-		return 0;
-	}
-	int fd = open(av[1], O_RDONLY);
-	char *map = get_map(fd);
+	int		fd;
+	char	*map;
+
 	if (ac == 2)
 	{
+		if(!ft_ber_checker(av[1]))
+			return (0);
+		fd = open(av[1], O_RDONLY);
+		map = get_map(fd);
 		if(!ft_checkmap(map))
-			return 0;
+			return (0);
 		global_map = ft_size(map);
 		free(map);
 		ft_screen(global_map, 0, 0);
 	}
 	else
-		ft_printf("argument less");
-
+		printf("argument less");
 }

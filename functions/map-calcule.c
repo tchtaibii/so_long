@@ -6,23 +6,24 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:00:55 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/12 04:45:32 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/12 20:56:38 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "functions.h"
+#include "../so_long.h"
 
 char	**ft_size(char *str)
 {
-	int w;
-	int h;
+	int		w;
+	int		h;
+	char	**spt;
 
 	w = 0;
-	char **spt = ft_split(str, '\n');
+	spt = ft_split(str, '\n');
 	while (spt[w])
 	{
 		h = 0;
-		while(spt[w][h] != '\0')
+		while (spt[w][h] != '\0')
 			h++;
 		w++;
 	}

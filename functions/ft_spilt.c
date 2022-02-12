@@ -6,11 +6,11 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:01:29 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/11 21:23:28 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/12 20:40:00 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "functions.h"
+#include "../so_long.h"
 
 int	checker_str(char sep, char c)
 {
