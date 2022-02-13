@@ -23,20 +23,20 @@ void	event_handler(t_img *img, int i, int x, int y)
 {
 	int		j;
 
-	while (global_map[++i])
+	while (g_global_map[++i])
 	{
 		j = -1;
 		x = 0;
-		while (global_map[i][++j])
+		while (g_global_map[i][++j])
 		{
 			mlx_put_image_to_window(img->p_m, img->w_m, img->empty, x, y);
-			if (global_map[i][j] == '1')
+			if (g_global_map[i][j] == '1')
 				mlx_put_image_to_window(img->p_m, img->w_m, img->wall, x, y);
-			else if (global_map[i][j] == 'E')
+			else if (g_global_map[i][j] == 'E')
 				mlx_put_image_to_window(img->p_m, img->w_m, img->ec, x, y);
-			else if (global_map[i][j] == 'C')
+			else if (g_global_map[i][j] == 'C')
 				mlx_put_image_to_window(img->p_m, img->w_m, img->coin, x, y);
-			else if (global_map[i][j] == 'P')
+			else if (g_global_map[i][j] == 'P')
 			{
 				mlx_put_image_to_window(img->p_m, img->w_m, img->player, x, y);
 				img->b = i;
@@ -54,23 +54,23 @@ void	ft_screen(t_img *img)
 	img->a = 0;
 	img->b = 0;
 	img->p_m = mlx_init();
-	img->w_m = mlx_new_window (img->p_m, map_height, \
-	map_weight, "SO LONG" );
-	img->player = mlx_xpm_file_to_image(img->p_m, i_player, \
+	img->w_m = mlx_new_window (img->p_m, g_map_height, \
+	g_map_weight, "SO LONG" );
+	img->player = mlx_xpm_file_to_image(img->p_m, I_PLAYER, \
 	&img->hei, &img->wei);
-	img->playerR = mlx_xpm_file_to_image(img->p_m, i_playerL, \
+	img->playerr = mlx_xpm_file_to_image(img->p_m, I_PLAYERL, \
 	&img->hei, &img->wei);
-	img->playerL = mlx_xpm_file_to_image(img->p_m, i_playerR, \
+	img->playerl = mlx_xpm_file_to_image(img->p_m, I_PLAYERR, \
 	&img->hei, &img->wei);
-	img->wall = mlx_xpm_file_to_image(img->p_m, i_wall, \
+	img->wall = mlx_xpm_file_to_image(img->p_m, I_WALL, \
 	&img->hei, &img->wei);
-	img->coin = mlx_xpm_file_to_image(img->p_m, i_coin, \
+	img->coin = mlx_xpm_file_to_image(img->p_m, I_COIN, \
 	&img->hei, &img->wei);
-	img->empty = mlx_xpm_file_to_image(img->p_m, i_empty, \
+	img->empty = mlx_xpm_file_to_image(img->p_m, I_EMPTY, \
 	&img->hei, &img->wei);
-	img->ec = mlx_xpm_file_to_image(img->p_m, i_ec, \
+	img->ec = mlx_xpm_file_to_image(img->p_m, I_EC, \
 	&img->hei, &img->wei);
-	img->exit_o = mlx_xpm_file_to_image(img->p_m, i_exit_o, \
+	img->exit_o = mlx_xpm_file_to_image(img->p_m, I_EXIT_O, \
 	&img->hei, &img->wei);
 	event_handler(img, -1, 0, 0);
 	event_render(img);
@@ -91,7 +91,7 @@ int	main(int ac, char **av)
 		map = get_map(fd);
 		if (!ft_checkmap(map))
 			return (0);
-		global_map = ft_size(map);
+		g_global_map = ft_size(map);
 		free(map);
 		ft_screen(img);
 	}

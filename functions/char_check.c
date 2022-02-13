@@ -48,11 +48,11 @@ int	char_check(char	*map, int e, int p)
 		if (map[i] == 'P')
 			p++;
 		if (map[i] == 'C')
-			coin_fnum++;
+			g_coin_fnum++;
 		if (!ft_edges(map, i))
 			return (0);
 	}
-	if (coin_fnum < 1 || e < 1 || p != 1)
+	if (g_coin_fnum < 1 || e < 1 || p != 1)
 	{
 		write(1, "Error\nmore or less than objects", 31);
 		return (0);

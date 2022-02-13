@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:00:55 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/12 20:56:38 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/13 01:24:03 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**ft_size(char *str)
 			h++;
 		w++;
 	}
-	map_height = h * 68;
-	map_weight = w * 68;
+	g_map_height = h * 68;
+	g_map_weight = w * 68;
 	return (spt);
 }

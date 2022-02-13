@@ -11,54 +11,54 @@
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <mlx.h>
+# include <stdio.h>
 
-#define  BUFFER_SIZE 1
-#define i_empty "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
-#define i_player "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerUD.xpm"
-#define i_playerL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerL.xpm"
-#define i_playerR "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerR.xpm"
-#define i_wall "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
-#define i_exit_o "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
-#define i_ec "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
-#define i_coin "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/c.xpm"
+# define  BUFFER_SIZE 1
+# define I_EMPTY "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
+# define I_PLAYER "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pUD.xpm"
+# define I_PLAYERL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pl.xpm"
+# define I_PLAYERR "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pr.xpm"
+# define I_WALL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
+# define I_EXIT_O "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
+# define I_EC "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
+# define I_COIN "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/c.xpm"
 
-int		map_height;
-int 	map_weight;
-int 	coin_fnum;
-int 	coin_num;
-int 	moves;
-char 	**global_map;
+int		g_map_height;
+int		g_map_weight;
+int		g_coin_fnum;
+int		g_coin_num;
+int		g_moves;
+char	**g_global_map;
 
 typedef struct s_img
 {
-	int a;
-	int b;
-	int hei;
-	int wei;
-	void *p_m;
-	void *w_m;
-	void *image;
-	void *player;
-	void *playerR;
-	void *playerL;
-	void *wall;
-	void *empty;
-	void *ec;
-	void *exit_o;
-	void *coin;
+	int		a;
+	int		b;
+	int		hei;
+	int		wei;
+	void	*p_m;
+	void	*w_m;
+	void	*image;
+	void	*player;
+	void	*playerr;
+	void	*playerl;
+	void	*wall;
+	void	*empty;
+	void	*ec;
+	void	*exit_o;
+	void	*coin;
 }	t_img;
 
 typedef struct s_player
 {
-	int x;
-	int y;
+	int		x;
+	int		y;
 }	t_player;
 
 int		ft_checkmap(char *map);
