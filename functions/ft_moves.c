@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_g_moves.c                                         :+:      :+:    :+:   */
+/*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:00:37 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/13 01:24:24 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/13 01:34:09 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_move_left(int key, t_img *img)
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerl, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->p_m, img->w_m);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 			write(1, "YOU WIN", 7);
 			exit(1);
 		}
@@ -47,7 +47,7 @@ void	ft_move_right(int key, t_img *img)
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerr, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->p_m, img->w_m);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 			write(1, "YOU WIN", 7);
 			exit(1);
 		}
@@ -68,7 +68,7 @@ void	ft_move_down(int key, t_img *img)
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->p_m, img->w_m);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 			write(1, "YOU WIN", 7);
 			exit(1);
 		}
@@ -89,7 +89,7 @@ void	ft_move_up(int key, t_img *img)
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
 			mlx_destroy_window(img->p_m, img->w_m);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 			write(1, "YOU WIN", 7);
 			exit(1);
 		}
@@ -103,16 +103,6 @@ int	ft_move_player(int key, t_img *img)
 	ft_move_right(key, img);
 	ft_move_left(key, img);
 	if (key == 53 || key == 12 || key < 0)
-	{
-		printf("EXIT\n");
-		exit(1);
-	}
-	return (0);
-}
-
-int exit_mouse(int key)
-{
-	if (key < 0)
 	{
 		printf("EXIT\n");
 		exit(1);

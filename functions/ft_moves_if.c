@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_g_moves_if.c                                      :+:      :+:    :+:   */
+/*   ft_moves_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:00:37 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/13 01:24:24 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/13 01:33:32 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_move_left_if(t_img *img)
 			img->a--;
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerl, img->a * 68, img->b * 68);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 		}
 	}
 }
@@ -51,7 +51,7 @@ void	ft_move_right_if(t_img *img)
 			img->a++;
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerr, img->a * 68, img->b * 68);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 		}
 	}
 }
@@ -73,7 +73,7 @@ void	ft_move_down_if(t_img *img)
 			img->b++;
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 		}
 	}
 }
@@ -95,7 +95,7 @@ void	ft_move_up_if(t_img *img)
 			img->b--;
 			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
-			printf("g_moves = %d\n", ++g_moves);
+			printf("moves = %d\n", ++g_moves);
 		}
 	}
 }
