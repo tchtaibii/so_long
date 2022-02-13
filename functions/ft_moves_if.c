@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 00:00:37 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/02/12 22:05:26 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2022/02/13 00:52:59 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	ft_move_left_if(t_img *img)
 			if (global_map[img->b][img->a - 1] == 'C')
 				if (coin_num < coin_fnum)
 					coin_num++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->empty, img->a * 68, img->b * 68);
 			img->a--;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerL, img->a * 68, img->b * 68);
 			printf("moves = %d\n", ++moves);
 		}
@@ -46,10 +46,10 @@ void	ft_move_right_if(t_img *img)
 			if (global_map[img->b][img->a + 1] == 'C')
 				if (coin_num < coin_fnum)
 					coin_num++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->empty, img->a * 68, img->b * 68);
 			img->a++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->playerR, img->a * 68, img->b * 68);
 			printf("moves = %d\n", ++moves);
 		}
@@ -68,10 +68,10 @@ void	ft_move_down_if(t_img *img)
 			if (global_map[img->b + 1][img->a] == 'C')
 				if (coin_num < coin_fnum)
 					coin_num++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->empty, img->a * 68, img->b * 68);
 			img->b++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
 			printf("moves = %d\n", ++moves);
 		}
@@ -90,10 +90,10 @@ void	ft_move_up_if(t_img *img)
 			if (global_map[img->b - 1][img->a] == 'C')
 				if (coin_num < coin_fnum)
 					coin_num++;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->empty, img->a * 68, img->b * 68);
 			img->b--;
-			mlx_put_image_to_window(img->ptr_mlx, img->window_mlx, \
+			mlx_put_image_to_window(img->p_m, img->w_m, \
 			img->player, img->a * 68, img->b * 68);
 			printf("moves = %d\n", ++moves);
 		}

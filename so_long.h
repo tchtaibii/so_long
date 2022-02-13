@@ -26,7 +26,7 @@
 #define i_playerR "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/playerR.xpm"
 #define i_wall "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
 #define i_exit_o "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
-#define i_exit_c "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
+#define i_ec "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
 #define i_coin "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/c.xpm"
 
 int		map_height;
@@ -42,15 +42,15 @@ typedef struct s_img
 	int b;
 	int hei;
 	int wei;
-	void *ptr_mlx;
-	void *window_mlx;
+	void *p_m;
+	void *w_m;
 	void *image;
 	void *player;
 	void *playerR;
 	void *playerL;
 	void *wall;
 	void *empty;
-	void *exit_c;
+	void *ec;
 	void *exit_o;
 	void *coin;
 }	t_img;
@@ -71,8 +71,8 @@ int		map_rect2(int j, int k);
 int		ft_move_player(int key, t_img *img);
 int		ft_ber_checker(char *string);
 int		check_line(char *s);
-void	ft_screen(char **str, int i, int y);
-void	ft_screen2(char *str);
+int		exit_mouse(int key);
+void	ft_screen(t_img *img);
 void	ft_move_down(int key, t_img *img);
 void	ft_move_up(int key, t_img *img);
 void	ft_move_right(int key, t_img *img);
