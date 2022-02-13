@@ -20,14 +20,14 @@
 # include <stdio.h>
 
 # define  BUFFER_SIZE 1
-# define I_EMPTY "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/0.xpm"
-# define I_PLAYER "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pUD.xpm"
-# define I_PLAYERL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pl.xpm"
-# define I_PLAYERR "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/pr.xpm"
-# define I_WALL "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/1.xpm"
-# define I_EXIT_O "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/eo.xpm"
-# define I_EC "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/ec.xpm"
-# define I_COIN "/Users/tchtaibi/Desktop/so_long/imgs/xpm/spongebob/c.xpm"
+# define I_EMPTY "imgs/xpm/spongebob/0.xpm"
+# define I_PLAYER "imgs/xpm/spongebob/pUD.xpm"
+# define I_PLAYERL "imgs/xpm/spongebob/pl.xpm"
+# define I_PLAYERR "imgs/xpm/spongebob/pr.xpm"
+# define I_WALL "imgs/xpm/spongebob/1.xpm"
+# define I_EXIT_O "imgs/xpm/spongebob/eo.xpm"
+# define I_EC "imgs/xpm/spongebob/ec.xpm"
+# define I_COIN "imgs/xpm/spongebob/c.xpm"
 
 int		g_map_height;
 int		g_map_weight;
